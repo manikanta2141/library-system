@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pay Fine</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Pay Fine</h2>
+
+    <div class="nav">
+        <a href="/user">Home</a>
+        <a href="/check">Transactions</a>
+        <a href="/return_page">Return Book</a>
+        <a href="/reports">Reports</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <div class="card">
+        <h3>Fine Details</h3>
+
+        <p><strong>Transaction ID:</strong> {{ trans.id }}</p>
+        <p><strong>Fine Amount:</strong> ₹{{ trans.fine }}</p>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <form method="post">
+
+            {% if trans.fine > 0 %}
+                <label>
+                    <input type="checkbox" name="paid">
+                    I confirm that the fine has been paid
+                </label>
+            {% else %}
+                <p class="success">No fine applicable. You can proceed.</p>
+            {% endif %}
+
+            <br><br>
+            <button type="submit">Confirm</button>
+        </form>
+    </div>
+
+    <br>
+    <a href="/return_page">⬅ Back to Return</a>
+
+</div>
+
+</body>
+</html>

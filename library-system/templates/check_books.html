@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check Book Availability</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Check Book Availability</h2>
+
+    <div class="nav">
+        <a href="/user">Home</a>
+        <a href="/return_page">Return Book</a>
+        <a href="/reports">Reports</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <!-- SEARCH -->
+    <div class="card">
+        <h3>Search Book</h3>
+
+        <form method="post">
+            <input type="text" name="search" placeholder="Enter book name">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="card">
+        <h3>Available Books</h3>
+
+        {% if items %}
+        <form method="post" action="/issue">
+            <table>
+                <tr>
+                    <th>Select</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                </tr>
+
+                {% for item in items %}
+                <tr>
+                    <td>
+                        <input type="radio" name="item_id" value="{{ item.id }}">
+                    </td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.type }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            <br>
+            <button type="submit">Issue Book</button>
+        </form>
+        {% else %}
+            <p>No books found.</p>
+        {% endif %}
+    </div>
+
+    <br>
+    <a href="/user">⬅ Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>

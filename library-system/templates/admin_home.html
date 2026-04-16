@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Admin Dashboard</h2>
+
+    <!-- NAVIGATION -->
+    <div class="nav">
+        <a href="/admin">Home</a>
+        <a href="/view_products">Product List</a>
+        <a href="/reports">Reports</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <!-- PRODUCT MANAGEMENT -->
+    <div class="card">
+        <h3>Product Management</h3>
+        <ul>
+            <li><a href="/add_product">Add Product</a></li>
+            <li><a href="/view_products">View Product List</a></li>
+        </ul>
+    </div>
+
+    <!-- BOOK MANAGEMENT -->
+    <div class="card">
+        <h3>Book Management</h3>
+        <ul>
+            <li><a href="/add_book">Add Book</a></li>
+        </ul>
+    </div>
+
+    <!-- TRANSACTIONS -->
+    <div class="card">
+        <h3>Transactions</h3>
+        <ul>
+            <li><a href="/check">Issue Book</a></li>
+            <li><a href="/return_page">Return Book</a></li>
+        </ul>
+    </div>
+
+    <!-- USER MANAGEMENT -->
+    <div class="card">
+        <h3>User Management</h3>
+        <ul>
+            <li><a href="/add_user">Add User</a></li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>

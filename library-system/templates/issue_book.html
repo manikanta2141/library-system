@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Issue Book</h2>
+
+    <div class="nav">
+        <a href="/transactions">Back</a>
+    </div>
+
+    <div class="card">
+
+        {% if error %}
+            <p style="color:red;">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST" action="/issue">
+
+            <label>Book Name</label><br>
+            <input type="text" name="book_name" placeholder="Enter Book Name" required><br><br>
+
+            <label>Author (Auto-filled)</label><br>
+            <input type="text" name="author" placeholder="Auto-filled" disabled><br><br>
+
+            <label>Issue Date</label><br>
+            <input type="date" name="issue_date" required><br><br>
+
+            <label>Return Date (Max 15 days)</label><br>
+            <input type="date" name="return_date" required><br><br>
+
+            <label>Remarks</label><br>
+            <textarea name="remarks"></textarea><br><br>
+
+            <button type="submit">Confirm Issue</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

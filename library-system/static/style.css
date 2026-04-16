@@ -1,0 +1,127 @@
+/* ------------------ GLOBAL ------------------ */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1e2a38, #2c3e50);
+    color: white;
+}
+
+/* ------------------ LOGIN ------------------ */
+.login-box {
+    width: 350px;
+    margin: 120px auto;
+    padding: 30px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.login-box h2 {
+    margin-bottom: 25px;
+}
+
+/* LOGIN INPUTS ONLY */
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+/* LOGIN BUTTON */
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background: #3498db;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-box button:hover {
+    background: #2980b9;
+}
+
+/* ------------------ MAIN LAYOUT ------------------ */
+.container {
+    width: 80%;
+    margin: 30px auto;
+}
+
+.nav {
+    margin-bottom: 20px;
+}
+
+.nav a {
+    margin-right: 15px;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+/* ------------------ CARDS ------------------ */
+.card {
+    background: #2c3e50;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+/* ------------------ FORM (GLOBAL) ------------------ */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    padding: 10px;
+    background: #3498db;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+/* ------------------ TABLE ------------------ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    color: black;
+    margin-top: 10px;
+}
+
+th {
+    background: #34495e;
+    color: white;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+/* ------------------ ERROR ------------------ */
+.error {
+    background: #e74c3c;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}

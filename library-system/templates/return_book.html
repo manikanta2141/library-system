@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Return Book</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Return Book</h2>
+
+    <div class="nav">
+        <a href="/user">Home</a>
+        <a href="/check">Transactions</a>
+        <a href="/reports">Reports</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <div class="card">
+        <h3>Select Book to Return</h3>
+
+        {% if transactions %}
+        <form method="post" action="/return">
+            <table>
+                <tr>
+                    <th>Select</th>
+                    <th>Transaction ID</th>
+                    <th>Issue Date</th>
+                    <th>Due Date</th>
+                </tr>
+
+                {% for t in transactions %}
+                <tr>
+                    <td>
+                        <input type="radio" name="transaction_id" value="{{ t.id }}">
+                    </td>
+                    <td>{{ t.id }}</td>
+                    <td>{{ t.issue_date }}</td>
+                    <td>{{ t.due_date }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            <br>
+            <button type="submit">Return Book</button>
+        </form>
+        {% else %}
+            <p>No active issued books.</p>
+        {% endif %}
+    </div>
+
+    <br>
+    <a href="/user">⬅ Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>

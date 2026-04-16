@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Transactions</h2>
+
+    <!-- NAV -->
+    <div class="nav">
+        <a href="/admin">Home</a>
+        <a href="/reports">Reports</a>
+        <a href="/returnpage">Return Book</a>
+    </div>
+
+    <!-- SEARCH FORM -->
+    <div class="card">
+        <h3>Check Book Availability</h3>
+
+        <!-- ✅ ERROR MESSAGE -->
+        {% if error %}
+            <p style="color:red;">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST" action="/search">
+            <input type="text" name="book" placeholder="Enter Book Name">
+
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <!-- RESULTS TABLE -->
+    {% if books %}
+    <div class="card">
+        <h3>Search Results</h3>
+
+        <form method="POST" action="/issue">
+
+            <!-- ✅ ERROR FOR ISSUE -->
+            {% if error %}
+                <p style="color:red;">{{ error }}</p>
+            {% endif %}
+
+            <table border="1" width="100%">
+                <tr>
+                    <th>Select</th>
+                    <th>Book Name</th>
+                    <th>Author</th>
+                    <th>Serial No</th>
+                    <th>Available</th>
+                </tr>
+
+                {% for b in books %}
+                <tr>
+                    <td>
+                        {% if b.available == 1 %}
+                        <input type="radio" name="book_id" value="{{ b.id }}">
+                        {% else %}
+                        Not Available
+                        {% endif %}
+                    </td>
+                    <td>{{ b.title }}</td>
+                    <td>{{ b.author }}</td>
+                    <td>{{ b.serial_no }}</td>
+                    <td>
+                        {% if b.available == 1 %}
+                            Yes
+                        {% else %}
+                            No
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            <br>
+            <button type="submit">Issue Book</button>
+        </form>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

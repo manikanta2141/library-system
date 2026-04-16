@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product List</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Available Products</h2>
+
+    <div class="nav">
+        <a href="/user">Home</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <div class="card">
+        {% if products %}
+        <table>
+            <tr>
+                <th>Code From</th>
+                <th>Code To</th>
+                <th>Category</th>
+            </tr>
+
+            {% for p in products %}
+            <tr>
+                <td>{{ p.code_from }}</td>
+                <td>{{ p.code_to }}</td>
+                <td>{{ p.category }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+            <p>No products available.</p>
+        {% endif %}
+    </div>
+
+</div>
+
+</body>
+</html>

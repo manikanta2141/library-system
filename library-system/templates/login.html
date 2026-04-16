@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="login-box">
+    <h2>Library Management System</h2>
+
+    <!-- ERROR MESSAGE -->
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+
+        <!-- USERNAME -->
+        <div>
+            <input 
+                type="text" 
+                name="username" 
+                placeholder="Enter User ID"
+                required
+            >
+        </div>
+
+        <!-- PASSWORD -->
+        <div>
+            <input 
+                type="password" 
+                name="password" 
+                placeholder="Enter Password"
+                required
+            >
+        </div>
+
+        <!-- BUTTON -->
+        <button type="submit">Login</button>
+
+    </form>
+
+    <!-- INFO -->
+    <p style="margin-top:15px; font-size:12px; color:#ccc;">
+        Admin → adm / adm <br>
+        User → user / user
+    </p>
+
+</div>
+
+</body>
+</html>

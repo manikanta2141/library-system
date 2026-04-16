@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reports</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Reports</h2>
+
+    <div class="nav">
+        <a href="/user">Home</a>
+        <a href="/check">Transactions</a>
+        <a href="/return_page">Return Book</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <!-- ACTIVE ISSUES -->
+    <div class="card">
+        <h3>Active Issues</h3>
+
+        {% if active %}
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>User ID</th>
+                <th>Issue Date</th>
+                <th>Due Date</th>
+            </tr>
+
+            {% for t in active %}
+            <tr>
+                <td>{{ t.id }}</td>
+                <td>{{ t.user_id }}</td>
+                <td>{{ t.issue_date }}</td>
+                <td>{{ t.due_date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+            <p>No active issues.</p>
+        {% endif %}
+    </div>
+
+    <!-- OVERDUE -->
+    <div class="card">
+        <h3>Overdue Books</h3>
+
+        {% if overdue %}
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>User ID</th>
+                <th>Due Date</th>
+            </tr>
+
+            {% for t in overdue %}
+            <tr>
+                <td>{{ t.id }}</td>
+                <td>{{ t.user_id }}</td>
+                <td>{{ t.due_date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+            <p>No overdue books.</p>
+        {% endif %}
+    </div>
+
+    <br>
+    <a href="/user">⬅ Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>
